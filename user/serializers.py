@@ -6,21 +6,20 @@ from . import models
 
 
 class CoreRegisterSerializer(RegisterSerializer):
-     class Meta:
+    class Meta:
         model = models.User
         fields = '__all__'
 
-     def get_cleaned_data(self):
+    def get_cleaned_data(self):
         return {
             'username': self.validated_data.get('username', ''),
             'email': self.validated_data.get('email', ''),
             'first_name': self.validated_data.get('first_name', ''),
             'password1': self.validated_data.get('password1', ''),
             'password2': self.validated_data.get('password2', ''),
-            
         }
 
-     def save(self, request):
+    def save(self, request):
         adapter = get_adapter()
         user = adapter.new_user(request)
         self.cleaned_data = self.get_cleaned_data()
@@ -52,7 +51,6 @@ class TokenSerializer(serializers.ModelSerializer):
         serializer_data = UserSerializer(
             obj.user
         ).data
-        
 
         return {
         }
