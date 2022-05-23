@@ -17,13 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from school import views
-from rest_auth import urls 
+from rest_auth import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('school.urls')),
-    #path('user/', include('user.urls')),
-   # path('auth/', include('rest_auth.urls')),
+    # path('user/', include('user.urls')),
+    path('auth/', include('rest_auth.urls')),
 
-    
 ]

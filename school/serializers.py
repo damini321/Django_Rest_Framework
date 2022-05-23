@@ -1,13 +1,15 @@
 from rest_framework import serializers
-#from . models import students
-from . models import *
+from .models import *
+
 
 class studentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = students
         fields = '__all__'
+        depth = 1
 
-class Student_Notifications_Serializer(serializers.ModelSerializer):
+
+class studentPostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student_Notifications
+        model = students
         fields = '__all__'
